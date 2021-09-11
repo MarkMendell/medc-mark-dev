@@ -1,2 +1,235 @@
 <!doctype html>
-Mark's C Editor
+<title>Mark's Editor for C</title>
+<meta charset="utf-8">
+<style>
+body { font-family:sans-serif; }
+/*details:not([open]) { color:#adadad; display:inline-block; margin-left:8px; }
+details[open] { margin:12px 0; }*/
+summary { cursor:pointer; }
+.phone { color:#00439c; }
+.desktop { color:#870200; }
+.codeblock { font-family:monospace; background-color:#dddddd; padding:4px; border-radius:4px; }
+.code { font-family:monospace; background-color:#eeeeee; }
+.comment { color:blue; }
+.type { color:green; }
+.etcdetails:not([open]) { display:inline-block; }
+.etcdetails:not([open]) >summary:after { content:','; display:inline; }
+.etcdetails[open] { color:black; }
+.descimg, .descimgplus { align-items:center; display:flex; padding:16px 8px; border-radius:0; justify-content:space-evenly; border-bottom:solid black 2px; }
+.phone.descimg { border-color:#00439c; }
+.descimg > * { margin:0 8px; }
+.descimg > img, .descimgplus img, .descimg > video { max-width:300px; object-fit:contain; border-radius:8px; }
+.descimgtext { text-align:center; }
+details > div > .descimg:nth-child(2n+2) { background-color:white; }
+details { margin:6px 0; }
+details > div { border-left:solid black 2px; /*border-right:solid black 2px; border-top:solid black 2px;*/ margin-left:4px; margin-top:4px; }
+details.phone > div { border-color:#00439c; }
+.descimgplusimgs { display:flex; flex-wrap:wrap; justify-content:space-evenly; align-items:center; }
+.descimgplusimgs > * { margin:8px 0; }
+.descimgtextbubble { padding:16px; border-radius:8px; background-color:#eeeeee; max-width:340px; }
+details.phone .descimgtextbubble { background-color:#d3e8fa; }
+#links > *:not(:hover) { opacity:0.7; }
+</style>
+<div style="text-align:center">
+</div>
+<br>
+<div style="display:flex;justify-content:space-evenly;max-width:1200px;flex-wrap:wrap;margin:auto">
+	<div style="margin:0 10px">
+		<video id="demo" autoplay controls loop muted style="border-radius:8px;" width="300" src="demo.mp4"></video>
+	</div>
+	<div style="margin:0 10px;flex:1;min-width:300px">
+		<div>
+			Medc
+			<span style="color:#adadad">(🗣med see)</span>
+			is an editor for C. It was written for <span class="phone"><span style="line-height:0">📱</span>phones</span> and adapted to <span class="desktop"><span style="line-height:0">🖥</span>desktop</span>.
+		</div>
+		<br>
+		<div>
+			It features:
+			<br>
+			<br>
+			<details>
+				<summary>individual line wrapping, prettified</summary>
+				<div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								When you click on the right edge of an overlong line, it will expand prettified.
+							</div>
+						</div>
+						<img src="indwrap00_cropped.jpg">
+						<img src="indwrap01_cropped.jpg">
+					</div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								The expansion is editable.  When you <span class="phone" style="white-space:nowrap"><span style="line-height:0">📱</span>swipe left</span> <span class="desktop"><span style="line-height:0">🖥</span>right click</span>, an expansion unexpands. Changed lines will edit spaces according to priority.
+							</div>
+						</div>
+						<img src="indwrap10_cropped.jpg">
+						<img src="indwrap20_cropped.jpg">
+					</div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								Unchanged lines retain their original formatting.
+							</div>
+						</div>
+						<img src="indwrap30_cropped.jpg">
+						<img src="indwrap31_cropped.jpg">
+					</div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								Lines can also be expanded without prettifying.
+							</div>
+						</div>
+						<img src="indwrap40_cropped.jpg">
+					</div>
+				</div>
+			</details>
+			<details>
+				<summary>hierarchical collapsing based on {} and empty lines</summary>
+				<div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								Groups of nonempty lines are collapsed into their first line.
+							</div>
+						</div>
+						<img src="block00_cropped.jpg">
+						<img src="block01_cropped.jpg">
+					</div>
+					<div class="descimgplus">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								{} blocks are included.
+							</div>
+						</div>
+						<div class="descimgplusimgs">
+							<img src="block10_cropped.jpg">
+							<img src="block11_cropped.jpg">
+							<img src="block12_cropped.jpg">
+						</div>
+					</div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								At the top level, functions are also grouped.
+							</div>
+						</div>
+						<img src="block20_cropped.jpg">
+						<img src="block21_cropped.jpg">
+					</div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								Top-level groups are collapsed further.
+							</div>
+						</div>
+						<img src="block30_cropped.jpg">
+						<img src="block31_cropped.jpg">
+					</div>
+				</div>
+			</details>
+			<details class="phone">
+				<summary>
+					<span style="line-height:0">📱</span>swipe control
+				</summary>
+				<div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								Swipe in the right third of the screen to scroll.
+							</div>
+						</div>
+						<video autoplay controls loop muted src="swipe0_ffmp.mp4"></video>
+					</div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								Swipe up in the middle to search.
+							</div>
+						</div>
+						<video autoplay controls loop muted src="swipe1_ffmp.mp4"></video>
+					</div>
+					<div class="descimg">
+						<div>
+							<div class="descimgtext">
+								<div class="descimgtextbubble">
+									Swipe down in the middle for commands.
+								</div>
+							</div>
+						</div>
+						<video autoplay controls loop muted src="swipe2_ffmp.mp4"></video>
+					</div>
+				</div>
+			</details>
+			<details>
+				<summary>code generation via shell script comments</summary>
+				<div>
+					<div class="descimg">
+						<div>
+							<div class="descimgtextbubble">
+								<div class="codeblock" style="margin-bottom:12px">
+									<span class="comment">// Generated: echo 'int foo;'</span>
+									<br><span class="type">int</span> foo;
+								</div>
+								<span class="code comment">// Generated:</span> will replace the line below it with the first line of the output of the code after 'Generated: '.
+							</div>
+						</div>
+						<video autoplay controls loop muted src="gen0_ffmp.mp4"></video>
+					</div>
+					<div class="descimg">
+						<div>
+							<div class="descimgtextbubble">
+								<div class="codeblock" style="margin-bottom:12px">
+									<span class="comment">/* GEN
+									<br>echo 'int foo;'
+									<br>echo 'long foo2;'
+									<br>*/</span>
+									<br><span class="type">int</span> foo;
+									<br><span class="type">long</span> foo2;
+									<br><span class="comment">//ENDGEN</span>
+								</div>
+								<span class="code comment">/* GEN</span> will run the rest of the comment as a shell script and replace the lines until the line <span class="code comment">//ENDGEN</span> with its output.
+							</div>
+						</div>
+						<video autoplay controls loop muted src="gen1_ffmp.mp4"></video>
+					</div>
+				</div>
+			</details>
+			<details class="phone">
+				<summary>
+					<span style="line-height:0">📱</span><a href="https://termux.com/">Termux</a> integration
+				</summary>
+				<div>
+					<div class="descimg">
+						<div class="descimgtext">
+							<div class="descimgtextbubble">
+								'Intent Termux' will send a RUN_COMMAND intent to Termux with RUN_COMMAND_PATH /data/data/com.termux/files/usr/bin/medcncmd.
+							</div>
+						</div>
+						<video autoplay controls loop muted src="termux0.mp4"></video>
+					</div>
+				</div>
+			</details>
+			<div style="margin:8px 0"><span style="margin-right:6px; margin-left:-1px">●</span> ~single-file, public domain C source</div>
+		</div>
+		<div style="color:#555555">
+			etc:
+			<!--details class="etcdetails">
+				<summary>multicursor</summary>
+			</details>
+			<details class="etcdetails">
+				<summary>regex search</summary>
+			</details!-->multicursor, regex search, regex replace, undo, select, line select, cut/copy/paste
+		</span>
+		<hr style="margin:12px 0">
+		<div id="links" style="font-size:12px">
+			<a href="http://eepurl.com/hH73zz">Mailing list for medc updates</a>
+			|
+			<a href="http://eepurl.com/hH8TFf">Mailing list for mark.dev releases</a>
+		</div>
+	</div>
+</div>
