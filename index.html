@@ -1,6 +1,7 @@
 <!doctype html>
 <title>Mark's Editor for C</title>
 <meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,height=device-height" name="viewport">
 <style>
 body { font-family:sans-serif; }
 /*details:not([open]) { color:#adadad; display:inline-block; margin-left:8px; }
@@ -17,7 +18,7 @@ summary { cursor:pointer; }
 .etcdetails[open] { color:black; }
 .descimg, .descimgplus { align-items:center; display:flex; padding:16px 8px; border-radius:0; justify-content:space-evenly; border-bottom:solid black 2px; }
 .phone.descimg { border-color:#00439c; }
-.descimg > * { margin:0 8px; }
+.descimg > * { margin:8px; }
 .descimg > img, .descimgplus img, .descimg > video { max-width:300px; object-fit:contain; border-radius:8px; }
 .descimgtext { text-align:center; }
 details > div > .descimg:nth-child(2n+2) { background-color:white; }
@@ -25,8 +26,9 @@ details { margin:6px 0; }
 details > div { border-left:solid black 2px; /*border-right:solid black 2px; border-top:solid black 2px;*/ margin-left:4px; margin-top:4px; }
 details.phone > div { border-color:#00439c; }
 .descimgplusimgs { display:flex; flex-wrap:wrap; justify-content:space-evenly; align-items:center; }
+@media (max-width: 1170px) { .descimg, .descimgplus { flex-wrap:wrap; } }
 .descimgplusimgs > * { margin:8px 0; }
-.descimgtextbubble { padding:16px; border-radius:8px; background-color:#eeeeee; max-width:340px; }
+.descimgtextbubble { padding:16px; border-radius:8px; background-color:#eeeeee; max-width:340px; overflow-wrap:anywhere; }
 details.phone .descimgtextbubble { background-color:#d3e8fa; }
 #links > *:not(:hover) { opacity:0.7; }
 </style>
