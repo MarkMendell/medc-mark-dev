@@ -1,0 +1,55 @@
+<!doctype html>
+<title>Unstable Releases - Mark's Editor for C</title>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,height=device-height" name="viewport">
+<style>
+body { font-family:sans-serif; max-width:800px; }
+</style>
+There are truly no guarantees to be found here, I just dropped the version I'm working on without testing anything
+
+<h1>Android</h1>
+
+<p>Instructions (untested):
+<ol>
+	<li>Install <a download href="medc_unstable.apk">apk</a></li>
+	<li>Make a file you want to edit in /storage/emulated/0/Android/data/com.vulkan.tutorials.sixcsim/files/c/AndroidMain.c</li>
+	<li>Open the app ("Tutorial 06csim"), save, etc, all the changes are made to that location ^
+</ol>
+
+<p>I recommend <a href="https://termux.com">Termux</a> to help you deal with that file outside of medc
+
+<p>Caveats:
+<ul>
+	<li>Don't type e.g. emojis, Asian characters</li>
+	<li>It may just crash randomly</li>
+	<li>Undo is really naive, eg it will try to 'undo' the expansion of a line, I don't really use it too deep</li>
+	<li>Since cutting/copying uses the system clipboard, it can't get too large</li>
+</ul>
+
+<p>Let me know any other issues/questions at mark@mark.dev, I'll probably have some kind of public place for that at some point
+
+<p>Building (untested):
+<ul>
+  <li>Get aarch64-linux-android-clang, aapt, ecj, dx, apksigner on your phone (might have gotten them from following <a href="https://sdrausty.github.io/docsBuildAPKs/">this</a>, some might already be on your PATH from the system, some might be copied from the NDK built by Android Studio on my PC)</li>
+	<li>Download the <a download href="medc_unstable_android.zip">source</a> on your phone</li>
+	<li>cd in there and run sh build.sh (buildrun.sh will open the apk in bin/ after as well). After it's built, if you only change AndroidMain.c, you can use buildquickrun.sh instead</li>
+</ul>
+
+<p>Logs are in /storage/emulated/0/Android/data/com.vulkan.tutorials.sixcsim/files/log.txt, maybe some of those libraries included in the source only work on my phone/architecture so you might need to replace them with one for your phone. The main source is in c/AndroidMain.c in the source zip. Can't say it's all public domain yet because it's modified from a Vulkan helloworld tutorial
+
+<h1>Windows</h1>
+
+<p>Instructions (untested):
+<ol>
+	<li>Download <a download href="medc_unstable.exe">exe</a></li>
+	<li>Run with a command line argument of the file you want to edit</li>
+</ol>
+
+<p>Right click is unexpand, ctrl-f find, ctrl-s save, etc
+
+<p>Build (untested):
+<ol>
+	<li>Get Visual Studio</li>
+	<li>Download <a href="medc_unstable.zip">source zip</a></li>
+	<li>Open the visual studio file and build from there</li>
+</ol>
