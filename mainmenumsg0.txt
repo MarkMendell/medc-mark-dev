@@ -1,1 +1,1 @@
-11/15/22 Back up before you edit! Medc is like 60% through a rewrite so some functionality needs to be copied over still. Like saving state when you leave! The button will say TODO. But it should be here within a week. This msg should update and be clickable when an update is available (until i get google play approved). Let me know bugs or features in the discord
+11/15/22 Back up before you edit! TODO features should be back within a week (finishing up a rewrite). Update notifications will appear here
