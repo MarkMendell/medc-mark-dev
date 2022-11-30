@@ -1,0 +1,16 @@
+11/30/22 - added autocorrect
+- added Tab button
+- added Find (works like vim /)
+11/24/22 - can now leave the app and come back where you left off (until you kill it)
+- autoindent on newline
+- create new file
+- increase/decrease font size
+- auto } on {
+- global replace
+- join } line if you typed after {
+- when the cursor goes past the edge of the screen, the line expands
+- copy, undo, and join overlays go away if you type
+- typing a newline at the start of a block won't hide the newline
+- cursor in search query
+- Fixed left swipe being interpreted as scroll instead of collapse
+11/14/22 Back up before you edit! Medc is like 60% through a rewrite so some functionality needs to be copied over still. The button will say TODO. But it should be here within a week. This msg should update and be clickable when an update is available (until i get google play approved). Let me know bugs or features in the discord and back up things you edit with medc
