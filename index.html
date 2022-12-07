@@ -21,6 +21,7 @@ summary { cursor:pointer; }
 .descimg > * { margin:8px; }
 .descimg > img, .descimgplus img, .descimg > video { max-width:300px; object-fit:contain; border-radius:8px; }
 .descimgtext { text-align:center; }
+.urldiv { padding:16px; border:solid; border-radius:8px; text-align:center; }
 details > div > .descimg:nth-child(2n+2) { background-color:white; }
 details { margin:6px 0; }
 details > div { border-left:solid black 2px; /*border-right:solid black 2px; border-top:solid black 2px;*/ margin-left:4px; margin-top:4px; }
@@ -226,10 +227,10 @@ details.phone .descimgtextbubble { background-color:#d3e8fa; }
 			</details!-->multicursor, regex search, regex replace, undo, select, line select, cut/copy/paste
 		</div>
 		<br>
-		<div>
-			You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSdWpQTgMvb4h9jTDPcJBHibZWvtRzN7ZNMqd3CeAiReF2YVHw/viewform?usp=sf_link">receive an email</a> when it's released.
-			Or join the <a href="https://discord.gg/TMxdwgxau6">discord</a>,
-			or download the <a href="https://github.com/MarkMendell/medc-mark-dev/releases">apk</a>.
+		<div style="display:flex;align-items:center">
+			<a href='https://play.google.com/store/apps/details?id=dev.mark.mobilecode&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play (Google Play and the Google Play logo are trademarks of Google LLC.)' style='width:200px' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+			<a href="https://discord.gg/TMxdwgxau6"><div class="urldiv">Discord</div></a>
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSdWpQTgMvb4h9jTDPcJBHibZWvtRzN7ZNMqd3CeAiReF2YVHw/viewform?usp=sf_link"><div class="urldiv" style='margin:0 8px'>Mailing list (e.g. iOS news)</div></a>
 		</div>
 		<hr style="margin:12px 0">
 		<div id="links" style="font-size:12px">
